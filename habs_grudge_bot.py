@@ -94,7 +94,7 @@ for comment in reddit.subreddit("habs").stream.comments():
             # Reply with tailored insult.
             comment.reply(insult)
             # Monitoring
-            print(comment + " : " + insult)
+            print(insult)
             # Record comment ID as being replied to.
             reply_tracker.append(comment.id)
             # Write reply_tracker to txt file for persisting record.
