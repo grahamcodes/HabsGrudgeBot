@@ -3,7 +3,7 @@ import praw
 import random
 import re
 
-enemy_list = ["SCHEIFELE", "KREIDER", "MARCHAND", "FELIX"]
+enemy_list = ["SCHEIFELE", "KREIDER", "MARCHAND"]
 enemy_name = "null"
 signature = "\n***\n*bleep bloop*"
 name_count = 0
@@ -72,7 +72,7 @@ reddit = praw.Reddit(
 )
 
 # Live stream comments in subreddit.
-for comment in reddit.subreddit("pythonforengineers").stream.comments():
+for comment in reddit.subreddit("habs").stream.comments():
     # Reset name_count and enemy_name.
     enemy_name = "null"
     name_count = 0
@@ -93,6 +93,8 @@ for comment in reddit.subreddit("pythonforengineers").stream.comments():
             insult = set_insult(enemy_name)
             # Reply with tailored insult.
             comment.reply(insult)
+            # Monitoring
+            print(comment + " : " + insult)
             # Record comment ID as being replied to.
             reply_tracker.append(comment.id)
             # Write reply_tracker to txt file for persisting record.
