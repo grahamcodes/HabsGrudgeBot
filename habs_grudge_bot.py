@@ -8,8 +8,19 @@ enemy_name = "null"
 signature = "\n***\n*^(bleep bloop)*"
 name_count = 0
 
+# Get PRAW credentials stored as environment variables.
+USER_AGENT = os.getenv("HGB_USER_AGENT")
+CLIENT_ID = os.getenv("HGB_CLIENT_ID")
+CLIENT_SECRET = os.getenv("HGB_CLIENT_SECRET")
+USERNAME = os.getenv("HGB_USERNAME")
+PASSWORD = os.getenv("HGB_PASSWORD")
 
-def set_insult(enemy):  # Function to place enemy's name in a random insult.
+# Get file path to reply_tracker.
+FILE_PATH = os.getenv("HGB_FILE_PATH")
+
+
+# Insult crafting method.
+def set_insult(enemy):
     insult_number = random.randint(1, 13)
     if insult_number == 1:
         insult_template = enemy + " couldn’t wheel a tire down a hill." + signature
@@ -42,16 +53,6 @@ def set_insult(enemy):  # Function to place enemy's name in a random insult.
         insult_template = enemy + " is ten-ply, bud." + signature
     return insult_template
 
-
-# Get file path to tracking txt stored as environment variable.
-FILE_PATH = os.getenv("HGB_FILE_PATH")
-
-# Get PRAW credentials stored as environment variables.
-USER_AGENT = os.getenv("HGB_USER_AGENT")
-CLIENT_ID = os.getenv("HGB_CLIENT_ID")
-CLIENT_SECRET = os.getenv("HGB_CLIENT_SECRET")
-USERNAME = os.getenv("HGB_USERNAME")
-PASSWORD = os.getenv("HGB_PASSWORD")
 
 # Get list of IDs for comments that have already been responded to.
 if not os.path.isfile(FILE_PATH):
