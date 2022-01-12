@@ -5,7 +5,7 @@ import re
 
 enemy_list = ["SCHEIFELE", "KREIDER", "MARCHAND"]
 enemy_name = "null"
-signature = "\n***\n*bleep bloop*"
+signature = "\n***\n*^(bleep bloop)*"
 name_count = 0
 
 
