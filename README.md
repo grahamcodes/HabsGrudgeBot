@@ -7,4 +7,4 @@ specific target names and responds accordingly if one is found.
 
 Insults are inspired from a variety of sources such as Reddit itself, Letterkenny, Monkey Island, etc.
 
-Update: In the end, I've learned that the target subreddit does not actually allow bots, so this particular bot is not viable. It is, however, a decent example that future bots may be built off. 
+Update: In the end, I've learned that the target subreddit does not actually allow bots, so this particular bot is not viable. The code works in theory but it is far too awesome to be allowed in practice. It is, however, a decent example that future bots may be built off. 
