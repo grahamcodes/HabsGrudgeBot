@@ -23,34 +23,32 @@ FILE_PATH = os.getenv("HGB_FILE_PATH")
 def set_insult(enemy):
     insult_number = random.randint(1, 13)
     if insult_number == 1:
-        insult_template = enemy + " couldn’t wheel a tire down a hill." + signature
+        insult_template = "%s couldn’t wheel a tire down a hill." % enemy
     elif insult_number == 2:
-        insult_template = enemy + "'s family tree is a wreath." + signature
+        insult_template = "%s's family tree is a wreath." % enemy
     elif insult_number == 3:
-        insult_template = enemy + " couldn't pour water out of a boot if the instructions were on the sole."\
-                          + signature
+        insult_template = "%s couldn't pour water out of a boot if the instructions were on the sole." % enemy
     elif insult_number == 4:
-        insult_template = "Anyone who ever loved " + enemy + " was wrong." + signature
+        insult_template = "Anyone who ever loved %s was wrong." % enemy
     elif insult_number == 5:
-        insult_template = enemy + " has the backbone of a chocolate eclair." + signature
+        insult_template = "%s has the backbone of a chocolate eclair." % enemy
     elif insult_number == 6:
-        insult_template = enemy + " is as bright as a black hole and twice as dense." + signature
+        insult_template = "%s is as bright as a black hole and twice as dense." % enemy
     elif insult_number == 7:
-        insult_template = "If " + enemy + " were anymore inbred he would be a sandwich." + signature
+        insult_template = "If %s were anymore inbred he would be a sandwich." % enemy
     elif insult_number == 8:
-        insult_template = enemy + " fights like a cow." + signature
+        insult_template = "%s fights like a cow." % enemy
     elif insult_number == 9:
-        insult_template = "I'd try to insult " + enemy + ", but I can't top what nature has already accomplished."\
-                          + signature
+        insult_template = "I'd try to insult %s, but I can't top what nature has already accomplished." % enemy
     elif insult_number == 10:
-        insult_template = enemy + " is as thick as manure and only half as useful." + signature
+        insult_template = "%s is as thick as manure and only half as useful." % enemy
     elif insult_number == 11:
-        insult_template = "If " + enemy + "'s brains were dynamite, there wouldn't be enough to blow his hat off."\
-                          + signature
+        insult_template = "If %s's brains were dynamite, there wouldn't be enough to blow his hat off." % enemy
     elif insult_number == 12:
-        insult_template = enemy + " is just a hole in the air." + signature
+        insult_template = "%s is just a hole in the air." % enemy
     elif insult_number == 13:
-        insult_template = enemy + " is ten-ply, bud." + signature
+        insult_template = "%s is ten-ply, bud." % enemy
+    insult_template += signature
     return insult_template
 
 
@@ -94,7 +92,7 @@ for comment in reddit.subreddit("habs").stream.comments():
             insult = set_insult(enemy_name)
             # Reply with tailored insult.
             comment.reply(insult)
-            # Monitoring
+            # Console monitoring
             print(comment)
             print(insult)
             # Record comment ID as being replied to.
@@ -103,4 +101,3 @@ for comment in reddit.subreddit("habs").stream.comments():
             with open(FILE_PATH, "w") as file_handler:
                 for comment_id in reply_tracker:
                     file_handler.write(comment_id + "\n")
-
