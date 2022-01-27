@@ -119,7 +119,7 @@ def stream_comments():
                 # Call our function for insulting our target.
                 insult = build_insult(enemy_name)
                 # Reply with tailored insult.
-                # comment.reply(insult)
+                comment.reply(insult)
                 # Console monitoring
                 print(comment)
                 print(insult)
